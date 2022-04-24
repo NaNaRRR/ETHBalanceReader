@@ -1,2 +1,2 @@
-# Read ETH balanca from any wallet
+# Read ETH balance from any wallet
 
