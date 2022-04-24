@@ -15,7 +15,7 @@ class ETH_to_EUR_NANA():
             
             if connection is True:
                 #Reading the ETH balance of the wallet
-                balance = web3.eth.getBalance(input("Enter your wallet address ")) 
+                balance = web3.eth.getBalance(input("Enter a wallet address ")) 
                 ETH_balance = web3.fromWei(balance, "ether")
 
                 #Address to get the data using the coinmarketcap API
@@ -27,7 +27,7 @@ class ETH_to_EUR_NANA():
                 }
                 headers = {
                 'Accepts': 'application/json',
-                'X-CMC_PRO_API_KEY': WW.API,
+                'X-CMC_PRO_API_KEY': WW.APIkey,
                 }
 
                 session = Session()
@@ -42,7 +42,7 @@ class ETH_to_EUR_NANA():
                     x = int(data['data'][0]['quote']['EUR']['price'])
                     
                     #The current value of your wallet is your ETH balance multiplied by the current ETH price
-                    print("Your wallet is currently holding €",ETH_balance * x, " worth of ETH")
+                    print("This wallet is currently holding €",ETH_balance * x, " worth of ETH")
                 
                 #In the event of a connection error
                 except (ConnectionError, Timeout, TooManyRedirects) as e:
