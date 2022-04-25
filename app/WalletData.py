@@ -5,7 +5,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 
 import app.WW as WW
 
-def get_wallet_data():
+def get_wallet_data(arg):
     #Connection to web3 to interact with the blockchain
         infura_url = WW.Infura
         web3 = Web3(Web3.HTTPProvider(infura_url))
@@ -14,8 +14,9 @@ def get_wallet_data():
         if connection:
             #Reading the ETH balance of the wallet
             #input = 
-            balance = web3.eth.getBalance(input) 
+            balance = web3.eth.getBalance(arg) 
             ETH_balance = web3.fromWei(balance, "ether")
+
 
             #Address to get the data using the coinmarketcap API
             url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -40,10 +41,7 @@ def get_wallet_data():
                 #Searching through the results for the ETH price
                 x = int(data['data'][0]['quote']['EUR']['price'])
 
-                y= ETH_balance * x
-                
-                #The current value of your wallet is your ETH balance multiplied by the current ETH price
-                print("This wallet is currently holding €",y, " worth of ETH")
+                return ETH_balance * x
                 
             #In the event of a connection error
             except (ConnectionError, Timeout, TooManyRedirects) as e:
