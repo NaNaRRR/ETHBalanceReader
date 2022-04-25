@@ -33,7 +33,7 @@ txtfld=Entry(window, bd=5)
 txtfld.place(x=100, y=100)
 
 #aarde = get_wallet_data(arg)
- #Creats a button to press   
+#Creats a button to press   
 btn=Button(window, text="Get balance", fg='black', command=get_balance)
 btn.place(x=160, y=150)
 
