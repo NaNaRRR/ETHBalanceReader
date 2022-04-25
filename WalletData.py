@@ -4,7 +4,7 @@ from requests import Session
 import json
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 
-import app.WW as WW
+import WW as WW
 
 def get_wallet_data(arg):
     #Connection to web3 to interact with the blockchain

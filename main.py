@@ -3,8 +3,8 @@ from ast import arg
 from cProfile import label
 from tkinter import *
 from curses import window
-from app.WalletData import *
-from app.WW import *
+from WalletData import *
+from WW import *
 
 #Start the window
 window=Tk()
