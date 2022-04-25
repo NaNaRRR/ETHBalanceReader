@@ -3,8 +3,33 @@ from requests import Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
+#Needed to make a pop-up window
+from tkinter import *
+
 #Import API key and Infura URL
 import WW
+
+class show_window():
+    def window():
+        window=Tk()
+               
+        #Creats text to show
+        lbl=Label(window, text="Read ETH balance from any wallet in €", fg='black', font=("Helvetica", 16))
+        lbl.place(x=60, y=50) 
+        
+        #Creats spaces to give the wallet address
+        txtfld=Entry(window, text="This is Entry Widget", bd=5)
+        txtfld.place(x=100, y=100)
+        
+        #Creats a button to press
+        btn=Button(window, text="Get balance", fg='black')
+        btn.place(x=160, y=150)
+        
+        window.title('NaNaTechdotcom')
+        window.geometry("400x300+500+200")
+        window.mainloop()
+    
+    window()
 
 class ETH_EUR():
     def get_wallet_data():
