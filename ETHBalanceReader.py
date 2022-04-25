@@ -14,26 +14,7 @@ from tkinter import *
 import WW
 
 class window():
-    window=Tk()
-    # add widgets
-
-    window.title("ETHBalanceReader")
     
-    window.geometry("400x400+500+200")
-    
-    #Make a title in the file
-    lbl=Label(window, text="NaNa's ETH wizard", fg='red', font=("Helvetica", 16))
-    lbl.place(x=130, y=50)
-    
-    #Make a button in the file to confrim the wallet entry
-    btn=Button(window, text="Check wallet balance", fg='Black')
-    btn.place(x=130, y=250)
-
-
-    txtfld=Entry(window, text="This is Entry Widget", bd=5)
-    txtfld.place(x=100, y=200)
-    
-    window.mainloop()
     
 class ETHtoEUR():
     def get_wallet_data():
