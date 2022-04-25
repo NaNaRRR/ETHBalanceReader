@@ -6,6 +6,7 @@ from curses import window
 from app.WalletData import *
 from app.WW import *
 
+#Start the window
 window=Tk()
 balance= StringVar()
 
