@@ -1,3 +1,4 @@
+#Import the web3 library
 from web3 import Web3
 from requests import Session
 import json
