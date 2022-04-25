@@ -6,14 +6,14 @@ import json
 #Import API key and Infura URL
 import WW
 
-class ETH_to_EUR_NANA():
+class ETH_EUR():
     def get_wallet_data():
             #Connection to web3 to interact with the blockchain
             infura_url = WW.Infura
             web3 = Web3(Web3.HTTPProvider(infura_url))
             connection = web3.isConnected()
             
-            if connection is True:
+            if connection:
                 #Reading the ETH balance of the wallet
                 balance = web3.eth.getBalance(input("Enter a wallet address ")) 
                 ETH_balance = web3.fromWei(balance, "ether")
@@ -40,7 +40,7 @@ class ETH_to_EUR_NANA():
     
                     #Searching through the results for the ETH price
                     x = int(data['data'][0]['quote']['EUR']['price'])
-                    
+    
                     #The current value of your wallet is your ETH balance multiplied by the current ETH price
                     print("This wallet is currently holding €",ETH_balance * x, " worth of ETH")
                 
