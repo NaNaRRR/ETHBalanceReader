@@ -7,17 +7,11 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 #Ables us to read json format
 import json
 
-#Import Tkinter library to make the interface
-from tkinter import *
-
 #Import API key and Infura URL
 import WW
 
-class window():
-    
-    
 class ETHtoEUR():
-    def get_wallet_data():
+    def get_wallet_data(self, arg):
             #Connection to web3 to interact with the blockchain
             infura_url = WW.Infura
             web3 = Web3(Web3.HTTPProvider(infura_url))
@@ -25,7 +19,11 @@ class ETHtoEUR():
             
             if connection:
                 #Reading the ETH balance of the wallet
-                balance = web3.eth.getBalance(input("Enter a wallet address ")) 
+                if arg == 'alex':
+                    address = WW.addressAlex
+                else:
+                    address = arg
+                balance = web3.eth.getBalance(address) 
                 ETH_balance = web3.fromWei(balance, "ether")
 
                 #Address to get the data using the coinmarketcap API
@@ -52,7 +50,9 @@ class ETHtoEUR():
                     x = int(data['data'][0]['quote']['EUR']['price'])
     
                     #The current value of your wallet is your ETH balance multiplied by the current ETH price
-                    print("This wallet is currently holding €",ETH_balance * x, " worth of ETH")
+                    #tekst = ("This wallet is currently holding €",ETH_balance * x, " worth of ETH")
+                    tekst = ETH_balance * x
+                    return tekst
                 
                 #In the event of a connection error
                 except (ConnectionError, Timeout, TooManyRedirects) as e:
@@ -61,8 +61,5 @@ class ETHtoEUR():
             #In the event that you are not connected to web3
             else:
                 print("Not connected to web3")
-    
-    #Run the program
-    get_wallet_data()
 
-window()
+func = ETHtoEUR()
