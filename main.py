@@ -1,7 +1,7 @@
 #Needed to make a pop-up window
-from ast import arg
-from cProfile import label
-from tkinter import *
+from tkinter import Tk, Label, Entry, Button, StringVar
+Tk('Agg')
+
 from curses import window
 from app.WalletData import *
 from app.WW import *
