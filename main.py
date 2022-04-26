@@ -3,18 +3,18 @@ from ast import arg
 from cProfile import label
 from tkinter import *
 from curses import window
-from WalletData import *
-from WW import *
+from app.WalletData import *
+from app.WW import *
 
 #Start the window
 window=Tk()
 balance= StringVar()
 
 def get_balance():
-    tekst = txtfld.get()
-    if tekst == 'NaNa':
-        tekst = example_address
-    balance.set(f"€{int(get_wallet_data(tekst))}")
+    text = txtfld.get()
+    if text == 'NaNa':
+        text = example_address
+    balance.set(f"€{int(get_wallet_data(text))}")
     
 
 window.title('NaNaTechdotcom')
