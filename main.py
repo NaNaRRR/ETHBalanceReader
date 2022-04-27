@@ -1,10 +1,15 @@
 #Needed to make a pop-up window
 from tkinter import Tk, Label, Entry, Button, StringVar
-Tk('Agg')
+import os
 
 from curses import window
 from app.WalletData import *
 from app.WW import *
+
+#Fix _tkinter.TclError: no display name and no $DISPLAY environment variable error
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0.0.0')
 
 #Start the window
 window=Tk()

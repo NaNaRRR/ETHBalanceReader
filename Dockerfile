@@ -3,13 +3,13 @@ FROM python:3.9.6
 
 WORKDIR /ETHBalanceReader/app
 
-COPY app .
+ADD /app .
 
 WORKDIR /ETHBalanceReader
 
-ADD requirements.txt .
-
 ADD main.py .
+
+ADD requirements.txt .
 
 RUN pip install -r requirements.txt
 
